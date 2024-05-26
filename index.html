@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>finn leijen</title>
+<title>finn marie leijen</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="finnleijen.eu">
 <style>
@@ -58,6 +58,27 @@
   }
 </style>
 <script>
+  // Function to randomly select a video URL
+  function getRandomVideo() {
+    var videos = [
+      'spread-1.webm',
+      'spread-2.webm',
+      'spread-3.webm',
+      'spread-4.webm',
+      'spread-5.webm',
+      'spread-6.webm'
+    ];
+    var randomIndex = Math.floor(Math.random() * videos.length);
+    return videos[randomIndex];
+  }
+
+  window.onload = function() {
+    // Get video element
+    var video = document.querySelector('.video-container video');
+    // Set random video source
+    video.src = getRandomVideo();
+  };
+
   function toggleAnythingSection() {
     var anythingSection = document.getElementById("anythingSection");
     if (anythingSection.classList.contains("hidden")) {
@@ -71,7 +92,7 @@
 <body>
 <div class="video-container">
   <video autoplay muted loop>
-    <source src="video-spread.mp4" type="video/mp4">
+    <!-- The source will be set by JavaScript -->
     Your browser does not support the video tag.
   </video>
 </div>
