@@ -6,21 +6,93 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="finnleijen.eu">
 <style>
+  /* Add your styles here */
+  .hidden {
+    display: none;
+  }
+  /* Styling for the button */
+  button {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+    padding: 0;
+    font-family: monospace;
+    font-size: 1em; /* Adjust font size to match surrounding text */
+  }
+  /* Flex container for links and button */
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* Video container */
+  .video-container {
+    width: 100%;
+    height: 87vh; /* 87% of viewport height */
+    overflow: hidden;
+  }
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* Anything to say section */
+  .anything-section {
+    white-space: pre-wrap; /* Wrap long lines */
+  }
+  @media screen and (orientation: portrait) {
+    .nav-container {
+      flex-direction: row;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    .nav-container {
+      flex-direction: row;
+      flex-wrap: nowrap; /* Disable wrapping */
+    }
+    .nav-container pre {
+      flex-basis: auto; /* Set the width of each link to auto */
+    }
+  }
 </style>
-<script src=""></script>
+<script>
+  function toggleAnythingSection() {
+    var anythingSection = document.getElementById("anythingSection");
+    if (anythingSection.classList.contains("hidden")) {
+      anythingSection.classList.remove("hidden");
+    } else {
+      anythingSection.classList.add("hidden");
+    }
+  }
+</script>
 </head>
 <body>
-<pre><a href="projects.html">projects</a></pre>
-<pre><a href="2024.html">2024</a></pre>
-<pre><a href="2023.html">2023</a></pre>
-<pre><a href="2022.html">2022</a></pre>
-<pre>anything to say...? e-mail me at <a href="mailto:mail@finnleijen.eu">mail@finnleijen.eu</a> or message me on <a href="https://www.instagram.com/rotweer/">instagram</a></pre>
-<pre>bottom of the page</pre>
+<div class="video-container">
+  <video autoplay muted loop>
+    <source src="video-spread.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<div class="nav-container">
+  <pre><a href="projects.html">projects</a></pre>
+  <button onclick="toggleAnythingSection()">Anything to say?</button>
+</div>
+<div class="nav-container">
+  <pre><a href="2024.html">2024</a></pre>
+  <pre><a href="2023.html">2023</a></pre>
+  <pre><a href="2022.html">2022</a></pre>
+</div>
+<div id="anythingSection" class="hidden">
+  <pre class="anything-section">anything to say...? e-mail me at <a href="mailto:mail@finnleijen.eu">mail@finnleijen.eu</a> or message me on <a href="https://www.instagram.com/rotweer/">instagram</a></pre>
+</div>
 <div class="">
   <h1></h1>
  <p></p>
  <p></p>
 </div>
 
+/* this page was coded using chatgpt.. sorry guys i dont have a compsci degree. i still designed it though. i retain the right to all works presented on this website, including my photos, and i do not consent to generative ai training or using it. */
 </body>
 </html>
