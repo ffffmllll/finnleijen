@@ -22,5 +22,22 @@
 <guid>https://www.finnleijen.eu/2024/IMG_0244.jpeg</guid>
     </item>
 
+ <item>
+      <title>Hello World 3... another try</title>
+      <description>this time I changed the ifttt settings.</description>
+      <pubDate>Sat, 08 Mar 2025 02:43:08 +0100</pubDate>
+      <enclosure url="https://www.finnleijen.eu/2024/IMG_4120.jpeg" type="image/jpeg" length="0"/>
+<guid>https://www.finnleijen.eu/2024/IMG_4120.jpeg</guid>
+    </item>
+
+<item>
+      <title>Hello World 4... yet another try</title>
+      <description>in this post I am changing the way I include an image, as this was the issue before.<br>
+<img src="https://www.finnleijen.eu/2024/IMG_1665.JPG">
+</description>
+      <pubDate>Sat, 08 Mar 2025 02:43:08 +0100</pubDate>
+<guid>https://www.finnleijen.eu/2024/IMG_1665.JPG</guid>
+    </item>
+
   </channel>
 </rss>
