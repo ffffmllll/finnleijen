@@ -56,6 +56,9 @@ jobs:
 
               fs.mkdirSync('activitypub', { recursive: true });
 
+              // Add .gitkeep file to make sure Git tracks the directory
+              fs.writeFileSync('activitypub/.gitkeep', '', 'utf8');
+
               // Log to check if the directory was created
               console.log('Directory activitypub created or already exists.');
 
