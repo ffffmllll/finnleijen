@@ -53,7 +53,8 @@ jobs:
               // Debug: Log the entire feed structure
               console.log('RSS feed structure:', JSON.stringify(feed, null, 2));
 
-              const items = feed.feed.entry;
+              // Extract items from the RSS feed
+              const items = feed.rss.channel[0].item;
 
               // Debug: List the number of items in the feed
               console.log('Number of items in RSS feed:', items.length);
@@ -69,19 +70,19 @@ jobs:
 
               // Process each item in the RSS feed
               for (const item of items) {
-                const id = item.id[0];
+                const id = item.guid[0]._;
                 const activity = {
                   '@context': 'https://www.w3.org/ns/activitystreams',
                   'type': 'Create',
                   'actor': actor.id,
-                  'id': 'https://finnleijen.eu/activitypub/' + id + '.json',
-                  'published': new Date(item.updated[0]).toISOString(),
+                  'id': 'https://finnleijen.eu/activitypub/' + id.split('/').pop() + '.json',
+                  'published': new Date(item.pubDate[0]).toISOString(),
                   'object': {
-                    'id': 'https://finnleijen.eu/activitypub/' + id + '.json',
+                    'id': 'https://finnleijen.eu/activitypub/' + id.split('/').pop() + '.json',
                     'type': 'Article',
                     'name': item.title[0],
-                    'content': item.summary ? item.summary[0] : item.content[0]._ || '',
-                    'url': item.link[0].$.href,
+                    'content': item.description[0],
+                    'url': item.link[0],
                   },
                 };
 
