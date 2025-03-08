@@ -54,7 +54,8 @@ jobs:
               let activities = [];
               fs.mkdirSync('activitypub', { recursive: true });
 
-              console.log('Directory activitypub created successfully.');
+              // Log to check if the directory was created
+              console.log('Directory activitypub created or already exists.');
 
               for (const item of items) {
                 const id = item.id[0];
@@ -76,12 +77,16 @@ jobs:
 
                 const activityFilePath = 'activitypub/' + id.split('/').pop() + '.json';
                 fs.writeFileSync(activityFilePath, JSON.stringify(activity, null, 2));
-                console.log('Created file:', activityFilePath);
+
+                // Log file creation
+                console.log('Created file at path:', activityFilePath);
               }
 
               // Save the profile JSON
               fs.writeFileSync('activitypub/profile.json', JSON.stringify(actor, null, 2));
-              console.log('Created profile file.');
+
+              // Log profile file creation
+              console.log('Created profile file at path: activitypub/profile.json');
 
               console.log('RSS to ActivityPub conversion completed!');
             } catch (error) {
