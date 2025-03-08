@@ -34,16 +34,16 @@ jobs:
 
           const RSS_URL = 'https://www.finnleijen.eu/atom.xml';  // Your RSS feed URL
 
-          const actor = {
-            '@context': 'https://www.w3.org/ns/activitystreams',
-            'id': 'https://finnleijen.eu/activitypub/profile.json',
-            'type': 'Person',
-            'preferredUsername': 'rotweerxml',  // Your preferred ActivityPub username
-            'name': 'Finn',  // Your blog's name
-            'summary': 'Finn's RSS/Activitypub feed',  // A short description of your blog
-            'inbox': 'https://finnleijen.eu/activitypub/inbox.json',
-            'outbox': 'https://finnleijen.eu/activitypub/outbox.json',
-          };
+         const actor = {
+  '@context': 'https://www.w3.org/ns/activitystreams',
+  'id': 'https://finnleijen.eu/activitypub/profile.json',
+  'type': 'Person',
+  'preferredUsername': 'finnleijen',
+  'name': 'Finn Leijen Blog',
+  'summary': 'Finn\'s RSS/Activitypub feed',  // Correctly escaped apostrophe
+  'inbox': 'https://finnleijen.eu/activitypub/inbox.json',
+  'outbox': 'https://finnleijen.eu/activitypub/outbox.json',
+};
 
           async function convertRSS() {
             try {
