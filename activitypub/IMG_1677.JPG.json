@@ -1,0 +1,14 @@
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Create",
+  "actor": "https://finnleijen.eu/activitypub/profile.json",
+  "id": "https://finnleijen.eu/activitypub/IMG_1677.JPG.json",
+  "published": "2025-03-08T00:34:53.000Z",
+  "object": {
+    "id": "https://finnleijen.eu/activitypub/IMG_1677.JPG.json",
+    "type": "Article",
+    "name": "Hello World!",
+    "content": "\n        I am currently posting this on the RSS feed on my website.\n      ",
+    "url": "https://www.finnleijen.eu/2024/IMG_1677.JPG"
+  }
+}
