@@ -119,17 +119,8 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           
-          # Pull latest changes from the remote to avoid conflicts
-          git pull origin main
-
-          # Check if activitypub directory exists and has files
-          if [ -d "activitypub" ] && [ "$(ls -A activitypub)" ]; then
-            echo "Found files in activitypub directory. Adding to Git..."
-            git add activitypub/
-          else
-            echo "No files to commit in activitypub directory."
-            exit 0
-          fi
+          # Add the activitypub directory to Git
+          git add activitypub/
 
           # Check for changes before committing
           if git diff --cached --quiet; then
@@ -139,6 +130,9 @@ jobs:
             echo "Committing changes..."
             git commit -m "Update ActivityPub feed"
           fi
+
+          # Pull latest changes from the remote to avoid conflicts
+          git pull origin main --rebase
 
           # Push the changes
           echo "Pushing changes to remote..."
