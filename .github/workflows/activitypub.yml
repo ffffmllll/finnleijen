@@ -24,9 +24,8 @@ jobs:
         run: |
           npm install axios xml2js  # Install the libraries to fetch and parse the RSS feed
 
-      - name: Run conversion script
+      - name: Create and Run conversion script
         run: |
-          # Create the conversion script to fetch and convert the RSS feed to ActivityPub
           echo "
           const axios = require('axios');
           const fs = require('fs');
@@ -47,11 +46,14 @@ jobs:
 
           async function convertRSS() {
             try {
+              console.log('Starting conversion...');
               const response = await axios.get(RSS_URL);
               const feed = await parseStringPromise(response.data);
               const items = feed.feed.entry;
 
-              let activities = [];
+              // Debug: List the number of items in the feed
+              console.log('Number of items in RSS feed:', items.length);
+
               fs.mkdirSync('activitypub', { recursive: true });
 
               // Log to check if the directory was created
@@ -78,14 +80,14 @@ jobs:
                 const activityFilePath = 'activitypub/' + id.split('/').pop() + '.json';
                 fs.writeFileSync(activityFilePath, JSON.stringify(activity, null, 2));
 
-                // Log file creation
+                // Debug: Output the file creation path
                 console.log('Created file at path:', activityFilePath);
               }
 
               // Save the profile JSON
               fs.writeFileSync('activitypub/profile.json', JSON.stringify(actor, null, 2));
 
-              // Log profile file creation
+              // Debug: Output profile file creation
               console.log('Created profile file at path: activitypub/profile.json');
 
               console.log('RSS to ActivityPub conversion completed!');
@@ -111,6 +113,10 @@ jobs:
 
           # Add all files in the activitypub folder and package-lock.json
           git add activitypub/ package-lock.json convert_rss_to_activitypub.js
+          
+          # Check for changes before committing
           git diff --cached --quiet || git commit -m "Update ActivityPub feed"
+          
+          # Push the changes
           git push --verbose
         shell: bash
