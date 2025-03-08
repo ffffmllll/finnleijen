@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>My Website</title>
-    <link>https://www.mywebsite.com</link>  <!-- Added this -->
-    <description>Latest updates from My Website</description>
+    <title>Rotweerxml social feed</title>
+    <link>https://www.finnleijen.eu/atom.xml</link>  <!-- Added this -->
+    <description>My new social media feed. I own all my own content.</description>
     <language>en-us</language>
 
     <item>
-      <title>First Blog Post</title>
-      <link>https://www.mywebsite.com/post1</link>  <!-- Added this -->
-      <description>This is a short description of the first post.</description>
-      <pubDate>Sat, 08 Mar 2025 12:00:00 GMT</pubDate>
-    </item>
-
-    <item>
-      <title>Second Blog Post</title>
-      <link>https://www.mywebsite.com/post2</link>  <!-- Added this -->
-      <description>This is a short description of the second post.</description>
-      <pubDate>Sun, 09 Mar 2025 14:00:00 GMT</pubDate>
+      <title>Hello World!</title>
+      <description>I am currently posting this on the RSS feed on my website.</description>
+      <pubDate>Sat, 08 Mar 2025 01:34:53CET</pubDate>
+      <enclosure url="https://www.finnleijen.eu/2024/IMG_1677.JPG" type="image/jpeg" length="0"/>
     </item>
 
   </channel>
