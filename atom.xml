@@ -61,5 +61,14 @@
       <guid isPermaLink="true">https://www.finnleijen.eu/2024/IMG_1508.JPG</guid>
     </item>
 
+<item>
+<title>Hi all, trying a new way of writing posts. still frustrated that I havent gotten images to work yet.</title>
+<link>https://www.finnleijen.eu/2024/D1F1A2C5-78F8-43B2-940A-7BDB349C598E.jpg</link>
+<description><![CDATA[I am writing this post in an excel sheet, which will turn it into rss code for me. Next I will try and tackle the Mastodon images again...]]></description>
+<enclosure url="https://www.finnleijen.eu/2024/D1F1A2C5-78F8-43B2-940A-7BDB349C598E.jpg" type="image/jpeg" length="367000"/>
+<pubDate>Sat, 08 Mar 2025 12:23:59 +0100</pubDate>
+<guid isPermaLink="true">https://www.finnleijen.eu/2024/D1F1A2C5-78F8-43B2-940A-7BDB349C598E.jpg</guid>
+</item>
+
   </channel>
 </rss>
