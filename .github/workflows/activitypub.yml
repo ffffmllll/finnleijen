@@ -75,8 +75,8 @@ jobs:
                     'url': item.link[0].$.href,
                   },
                 };
-                activities.push(activity);
 
+                // Create file paths
                 const activityFilePath = 'activitypub/' + id.split('/').pop() + '.json';
                 fs.writeFileSync(activityFilePath, JSON.stringify(activity, null, 2));
 
@@ -112,7 +112,7 @@ jobs:
           git pull origin main
 
           # Add all files in the activitypub folder and package-lock.json
-          git add activitypub/ package-lock.json convert_rss_to_activitypub.js
+          git add activitypub/* package-lock.json convert_rss_to_activitypub.js
           
           # Check for changes before committing
           git diff --cached --quiet || git commit -m "Update ActivityPub feed"
