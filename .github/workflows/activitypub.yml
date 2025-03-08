@@ -32,24 +32,24 @@ jobs:
           const fs = require('fs');
           const { parseStringPromise } = require('xml2js');
 
-          const RSS_URL = 'https://www.finnleijen.eu/atom.xml';  // Your RSS feed URL
+          const RSS_URL = 'https://www.finnleijen.eu/atom.xml';  # Your RSS feed URL
 
-         const actor = {
-  '@context': 'https://www.w3.org/ns/activitystreams',
-  'id': 'https://finnleijen.eu/activitypub/profile.json',
-  'type': 'Person',
-  'preferredUsername': 'finnleijen',
-  'name': 'Finn Leijen Blog',
-  'summary': 'Finn\'s RSS/Activitypub feed',  // Correctly escaped apostrophe
-  'inbox': 'https://finnleijen.eu/activitypub/inbox.json',
-  'outbox': 'https://finnleijen.eu/activitypub/outbox.json',
-};
+          const actor = {
+            '@context': 'https://www.w3.org/ns/activitystreams',
+            'id': 'https://finnleijen.eu/activitypub/profile.json',
+            'type': 'Person',
+            'preferredUsername': 'rotweerxml',  # Your ActivityPub username
+            'name': 'Finn',  # Your blog name
+            'summary': 'Finns RSS/Activitypub feed',  # Correctly escaped apostrophe
+            'inbox': 'https://finnleijen.eu/activitypub/inbox.json',
+            'outbox': 'https://finnleijen.eu/activitypub/outbox.json',
+          };
 
           async function convertRSS() {
             try {
               const response = await axios.get(RSS_URL);
               const feed = await parseStringPromise(response.data);
-              const items = feed.feed.entry;  // Adjust for Atom feed format
+              const items = feed.feed.entry;  # Adjust for Atom feed format
 
               let activities = [];
               fs.mkdirSync('activitypub', { recursive: true });
@@ -90,6 +90,7 @@ jobs:
 
           # Run the conversion script
           node convert_rss_to_activitypub.js
+        shell: bash
 
       - name: Commit and push converted files
         run: |
@@ -98,3 +99,4 @@ jobs:
           git add activitypub/
           git commit -m "Update ActivityPub feed"
           git push
+        shell: bash
