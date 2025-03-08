@@ -13,5 +13,12 @@
       <enclosure url="https://www.finnleijen.eu/2024/IMG_1677.JPG" type="image/jpeg" length="0"/>
     </item>
 
+    <item>
+      <title>Hello World 2!</title>
+      <description>My second try posting on the RSS feed on my website, this time after setting up IFFT & Mastadon.</description>
+      <pubDate>Sat, 08 Mar 2025 01:46:08CET</pubDate>
+      <enclosure url="https://www.finnleijen.eu/2024/IMG_0244.jpeg" type="image/jpeg" length="0"/>
+    </item>
+
   </channel>
 </rss>
