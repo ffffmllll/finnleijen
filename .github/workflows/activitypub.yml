@@ -39,7 +39,7 @@ jobs:
             'id': 'https://finnleijen.eu/activitypub/profile.json',
             'type': 'Person',
             'preferredUsername': 'rotweerxml',
-            'name': 'Finn',  # Your blog name
+            'name': 'Finn',
             'summary': 'Finns RSS/Activitypub feed',  
             'inbox': 'https://finnleijen.eu/activitypub/inbox.json',
             'outbox': 'https://finnleijen.eu/activitypub/outbox.json',
