@@ -52,7 +52,7 @@
 
    <item>
       <title>Hello World 4... yet another try</title>
-      <link>https://www.finnleijen.eu/2024/IMG_1508.JPG/link>
+      <link>https://www.finnleijen.eu/2024/IMG_1508.JPG</link>
       <description><![CDATA[
         In this post, I am changing the way I include an image, as this was the issue before.<br>
         <img src="https://www.finnleijen.eu/2024/IMG_1508.JPG">
