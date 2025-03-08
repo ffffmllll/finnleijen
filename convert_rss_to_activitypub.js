@@ -24,6 +24,7 @@ async function convertRSS() {
 
     let activities = [];
     fs.mkdirSync('activitypub', { recursive: true });
+    console.log('Directory activitypub created.');
 
     for (const item of items) {
       const id = item.id[0];
@@ -45,10 +46,12 @@ async function convertRSS() {
 
       // Save each activity as a JSON file
       fs.writeFileSync('activitypub/' + id.split('/').pop() + '.json', JSON.stringify(activity, null, 2));
+      console.log('Written file: activitypub/' + id.split('/').pop() + '.json');
     }
 
     // Save the profile JSON
     fs.writeFileSync('activitypub/profile.json', JSON.stringify(actor, null, 2));
+    console.log('Written profile file: activitypub/profile.json');
 
     console.log('RSS to ActivityPub conversion completed!');
   } catch (error) {
