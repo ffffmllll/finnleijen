@@ -22,10 +22,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install axios xml2js
+          npm install axios xml2js  # Install the libraries to fetch and parse the RSS feed
 
       - name: Run conversion script
         run: |
+          # Create the conversion script to fetch and convert the RSS feed to ActivityPub
           echo "
           const axios = require('axios');
           const fs = require('fs');
@@ -52,7 +53,6 @@ jobs:
 
               let activities = [];
               fs.mkdirSync('activitypub', { recursive: true });
-              console.log('Directory "activitypub" created.');
 
               for (const item of items) {
                 const id = item.id[0];
@@ -74,12 +74,10 @@ jobs:
 
                 // Save each activity as a JSON file
                 fs.writeFileSync('activitypub/' + id.split('/').pop() + '.json', JSON.stringify(activity, null, 2));
-                console.log('Written file: activitypub/' + id.split('/').pop() + '.json');
               }
 
               // Save the profile JSON
               fs.writeFileSync('activitypub/profile.json', JSON.stringify(actor, null, 2));
-              console.log('Written profile file: activitypub/profile.json');
 
               console.log('RSS to ActivityPub conversion completed!');
             } catch (error) {
@@ -90,17 +88,19 @@ jobs:
           convertRSS();
           " > convert_rss_to_activitypub.js
 
+          # Run the conversion script
           node convert_rss_to_activitypub.js
         shell: bash
-
-      - name: Check git log
-        run: |
-          git log --oneline
 
       - name: Commit and push converted files
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+          
+          # Pull latest changes from the remote to avoid conflicts
+          git pull origin main
+
+          # Add all files in the activitypub folder and package-lock.json
           git add activitypub/ package-lock.json convert_rss_to_activitypub.js
           git diff --cached --quiet || git commit -m "Update ActivityPub feed"
           git push --verbose
