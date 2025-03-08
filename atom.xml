@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>Rotweerxml social feed</title>
+    <title>rotweerxml social feed</title>
     <link>https://www.finnleijen.eu/atom.xml</link>  <!-- Added this -->
     <description>My new social media feed. I own all my own content.</description>
     <language>en-us</language>
