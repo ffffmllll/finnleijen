@@ -1,0 +1,100 @@
+name: Convert RSS to ActivityPub
+
+on:
+  push:
+    branches:
+      - main  # Trigger when changes are pushed to the main branch
+  schedule:
+    - cron: "0 0 * * *"  # Runs every day at midnight UTC
+
+jobs:
+  convert-rss-to-activitypub:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # You can change the Node.js version here
+
+      - name: Install dependencies
+        run: |
+          npm install axios xml2js  # Install the libraries to fetch and parse the RSS feed
+
+      - name: Run conversion script
+        run: |
+          # Create the conversion script to fetch and convert the RSS feed to ActivityPub
+          echo "
+          const axios = require('axios');
+          const fs = require('fs');
+          const { parseStringPromise } = require('xml2js');
+
+          const RSS_URL = 'https://www.finnleijen.eu/atom.xml';  // Your RSS feed URL
+
+          const actor = {
+            '@context': 'https://www.w3.org/ns/activitystreams',
+            'id': 'https://finnleijen.eu/activitypub/profile.json',
+            'type': 'Person',
+            'preferredUsername': 'rotweerxml',  // Your preferred ActivityPub username
+            'name': 'Finn',  // Your blog's name
+            'summary': 'Finn's RSS/Activitypub feed',  // A short description of your blog
+            'inbox': 'https://finnleijen.eu/activitypub/inbox.json',
+            'outbox': 'https://finnleijen.eu/activitypub/outbox.json',
+          };
+
+          async function convertRSS() {
+            try {
+              const response = await axios.get(RSS_URL);
+              const feed = await parseStringPromise(response.data);
+              const items = feed.feed.entry;  // Adjust for Atom feed format
+
+              let activities = [];
+              fs.mkdirSync('activitypub', { recursive: true });
+
+              for (const item of items) {
+                const id = item.id[0];
+                const activity = {
+                  '@context': 'https://www.w3.org/ns/activitystreams',
+                  'type': 'Create',
+                  'actor': actor.id,
+                  'id': 'https://finnleijen.eu/activitypub/' + id + '.json',
+                  'published': new Date(item.updated[0]).toISOString(),
+                  'object': {
+                    'id': 'https://finnleijen.eu/activitypub/' + id + '.json',
+                    'type': 'Article',
+                    'name': item.title[0],
+                    'content': item.summary ? item.summary[0] : item.content[0]._ || '',
+                    'url': item.link[0].$.href,
+                  },
+                };
+                activities.push(activity);
+
+                // Save each activity as a JSON file
+                fs.writeFileSync('activitypub/' + id.split('/').pop() + '.json', JSON.stringify(activity, null, 2));
+              }
+
+              // Save the profile JSON
+              fs.writeFileSync('activitypub/profile.json', JSON.stringify(actor, null, 2));
+
+              console.log('RSS to ActivityPub conversion completed!');
+            } catch (error) {
+              console.error('Error fetching or parsing RSS:', error);
+            }
+          }
+
+          convertRSS();
+          " > convert_rss_to_activitypub.js
+
+          # Run the conversion script
+          node convert_rss_to_activitypub.js
+
+      - name: Commit and push converted files
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add activitypub/
+          git commit -m "Update ActivityPub feed"
+          git push
