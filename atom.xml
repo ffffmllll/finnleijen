@@ -80,5 +80,16 @@
 <guid isPermaLink="true">https://www.finnleijen.eu/2023/IMG_1369.JPG</guid>
 </item>
 
+<item>
+<title>Post 1, test post, hello world</title>
+<link>https://www.finnleijen.eu/blog/08032025</link>
+<a href="https://fed.brid.gy/" hidden="from-humans"></a>
+<description><![CDATA[Hey all, there might be a few spam posts while I try to get this stuff to work technologically. I have been thinking a lot about the future of this website and what it will become, and how I will use it to learn coding better... We will see.]]></description>
+<enclosure url="https://live.staticflickr.com/65535/53576348181_f33a8af987_o_d.jpg" type="image/jpeg" length="0"/>
+<pubDate>Sat, 08 Mar 2025 23:57:51 +0100</pubDate>
+<guid isPermaLink="true">https://www.finnleijen.eu/blog/08032025</guid>
+</item>
+
+
   </channel>
 </rss>
