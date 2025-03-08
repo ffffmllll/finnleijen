@@ -49,11 +49,16 @@ jobs:
               console.log('Starting conversion...');
               const response = await axios.get(RSS_URL);
               const feed = await parseStringPromise(response.data);
+
+              // Debug: Log the entire feed structure
+              console.log('RSS feed structure:', JSON.stringify(feed, null, 2));
+
               const items = feed.feed.entry;
 
               // Debug: List the number of items in the feed
               console.log('Number of items in RSS feed:', items.length);
 
+              // Create the activitypub directory if it doesn't exist
               fs.mkdirSync('activitypub', { recursive: true });
 
               // Add .gitkeep file to make sure Git tracks the directory
@@ -62,6 +67,7 @@ jobs:
               // Log to check if the directory was created
               console.log('Directory activitypub created or already exists.');
 
+              // Process each item in the RSS feed
               for (const item of items) {
                 const id = item.id[0];
                 const activity = {
@@ -96,6 +102,7 @@ jobs:
               console.log('RSS to ActivityPub conversion completed!');
             } catch (error) {
               console.error('Error fetching or parsing RSS:', error);
+              process.exit(1);  // Exit with error code to fail the workflow
             }
           }
 
@@ -116,7 +123,8 @@ jobs:
 
           # Check if activitypub directory exists and has files
           if [ -d "activitypub" ] && [ "$(ls -A activitypub)" ]; then
-            git add activitypub/*
+            echo "Found files in activitypub directory. Adding to Git..."
+            git add activitypub/
           else
             echo "No files to commit in activitypub directory."
             exit 0
@@ -127,9 +135,11 @@ jobs:
             echo "No changes to commit."
             exit 0
           else
+            echo "Committing changes..."
             git commit -m "Update ActivityPub feed"
           fi
 
           # Push the changes
+          echo "Pushing changes to remote..."
           git push --verbose
         shell: bash
