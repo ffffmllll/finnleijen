@@ -114,12 +114,22 @@ jobs:
           # Pull latest changes from the remote to avoid conflicts
           git pull origin main
 
-          # Add all files in the activitypub folder and package-lock.json
-          git add activitypub/* package-lock.json convert_rss_to_activitypub.js
-          
+          # Check if activitypub directory exists and has files
+          if [ -d "activitypub" ] && [ "$(ls -A activitypub)" ]; then
+            git add activitypub/*
+          else
+            echo "No files to commit in activitypub directory."
+            exit 0
+          fi
+
           # Check for changes before committing
-          git diff --cached --quiet || git commit -m "Update ActivityPub feed"
-          
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          else
+            git commit -m "Update ActivityPub feed"
+          fi
+
           # Push the changes
           git push --verbose
         shell: bash
