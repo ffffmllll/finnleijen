@@ -32,15 +32,15 @@ jobs:
           const fs = require('fs');
           const { parseStringPromise } = require('xml2js');
 
-          const RSS_URL = 'https://www.finnleijen.eu/atom.xml';  # Your RSS feed URL
+          const RSS_URL = 'https://www.finnleijen.eu/atom.xml'; 
 
           const actor = {
             '@context': 'https://www.w3.org/ns/activitystreams',
             'id': 'https://finnleijen.eu/activitypub/profile.json',
             'type': 'Person',
-            'preferredUsername': 'rotweerxml',  # Your ActivityPub username
+            'preferredUsername': 'rotweerxml',
             'name': 'Finn',  # Your blog name
-            'summary': 'Finns RSS/Activitypub feed',  # Correctly escaped apostrophe
+            'summary': 'Finns RSS/Activitypub feed',  
             'inbox': 'https://finnleijen.eu/activitypub/inbox.json',
             'outbox': 'https://finnleijen.eu/activitypub/outbox.json',
           };
@@ -49,7 +49,7 @@ jobs:
             try {
               const response = await axios.get(RSS_URL);
               const feed = await parseStringPromise(response.data);
-              const items = feed.feed.entry;  # Adjust for Atom feed format
+              const items = feed.feed.entry;
 
               let activities = [];
               fs.mkdirSync('activitypub', { recursive: true });
