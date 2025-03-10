@@ -6,6 +6,7 @@
   <updated>2025-03-08T23:57:51+01:00</updated>
   <author>
     <name>Finn</name>
+    <uri>https://www.finnleijen.eu/</uri>
   </author>
   <id>https://www.finnleijen.eu/atom.xml</id> <!-- Feed ID -->
 
@@ -14,21 +15,38 @@
     <link href="https://www.finnleijen.eu/blog/08032025" />
     <id>https://www.finnleijen.eu/blog/08032025</id> <!-- Entry ID -->
     <updated>2025-03-08T23:57:51+01:00</updated>
+    <author>
+      <name>Finn</name>
+      <uri>https://www.finnleijen.eu/</uri>
+    </author>
+    <category term="Test" />
     <summary>Hey all, there might be a few spam posts while I try to get this stuff to work technologically. I have been thinking a lot about the future of this website and what it will become, and how I will use it to learn coding better... We will see.</summary>
     <content type="html"><![CDATA[
-      <p>Hey all, there might be a few spam posts while I try to get this stuff to work technologically. I have been thinking a lot about the future of this website and what it will become, and how I will use it to learn coding better... We will see.</p>
-      <img src="https://live.staticflickr.com/65535/53576348181_f33a8af987_o_d.jpg" alt="Post image">
+      <div class="h-entry">
+        <p class="e-content">Hey all, there might be a few spam posts while I try to get this stuff to work technologically. I have been thinking a lot about the future of this website and what it will become, and how I will use it to learn coding better... We will see.</p>
+        <img src="https://live.staticflickr.com/65535/53576348181_f33a8af987_o_d.jpg" class="u-photo" alt="Post image">
+        <a class="u-url" href="https://www.finnleijen.eu/blog/08032025">Permalink</a>
+      </div>
     ]]></content>
   </entry>
-    <entry>
+
+  <entry>
     <title>Post 2, another test post</title>
     <link href="https://www.finnleijen.eu/blog/09032025" />
     <id>https://www.finnleijen.eu/blog/09032025</id> <!-- Entry ID -->
     <updated>2025-09-08T21:50:10+01:00</updated>
+    <author>
+      <name>Finn</name>
+      <uri>https://www.finnleijen.eu/</uri>
+    </author>
+    <category term="Test" />
     <summary>Another test post in light of a recent breakthrough. Hope you all are well.</summary>
     <content type="html"><![CDATA[
-      <p>Another test post in light of a recent breakthrough. Hope you all are well.</p>
-      <img src="https://live.staticflickr.com/65535/53576790390_739fa44ce5_o_d.jpg" alt="Post image">
+      <div class="h-entry">
+        <p class="e-content">Another test post in light of a recent breakthrough. Hope you all are well.</p>
+        <img src="https://live.staticflickr.com/65535/53576790390_739fa44ce5_o_d.jpg" class="u-photo" alt="Post image">
+        <a class="u-url" href="https://www.finnleijen.eu/blog/09032025">Permalink</a>
+      </div>
     ]]></content>
   </entry>
 </feed>
