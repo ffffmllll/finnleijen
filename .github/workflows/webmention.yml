@@ -1,0 +1,30 @@
+name: Send Webmention on New Blog Post
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "blog/**"  # Adjust if your posts are in a different folder
+
+jobs:
+  send-webmention:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Find latest blog post
+        id: latest_post
+        run: |
+          LATEST_POST=$(git diff --name-only HEAD^ HEAD | grep 'blog/' | head -n 1)
+          echo "LATEST_POST=$LATEST_POST" >> $GITHUB_ENV
+
+      - name: Send Webmention to Bridgy Fed
+        run: |
+          if [[ -n "$LATEST_POST" ]]; then
+            POST_URL="https://www.finnleijen.eu/$LATEST_POST"
+            curl -X POST "https://telegraph.p3k.io/send" \
+              -d "source=$POST_URL" \
+              -d "target=https://fed.brid.gy/"
+          fi
