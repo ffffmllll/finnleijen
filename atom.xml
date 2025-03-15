@@ -71,3 +71,23 @@
   <in-reply-to ref="https://mastodon.social/@rotweer/114146770992946384" type="text/html" href="https://mastodon.social/@rotweer/114146770992946384" />
 </entry>
 </feed>
+
+  <entry>
+    <title>automatic updates</title>
+    <link href="https://www.finnleijen.eu/blog/15032025" />
+    <id>https://www.finnleijen.eu/blog/15032025</id> <!-- Entry ID -->
+    <updated>2025-15-08T01:14:17+01:00</updated>
+    <author>
+      <name>Finn</name>
+      <uri>https://www.finnleijen.eu/</uri>
+    </author>
+    <category term="Test" />
+    <summary>testing right now if i can get github to automatically webmention when i post a new thing. if you see this it worked!</summary>
+    <content type="html"><![CDATA[
+      <div class="h-entry">
+        <p class="e-content">testing right now if i can get github to automatically webmention when i post a new thing. if you see this it worked!</p>
+        <img src="https://live.staticflickr.com/65535/54071205542_642d764ea9_o.jpg" class="u-photo" alt="hot air balloons">
+        <a class="u-url" href="https://www.finnleijen.eu/blog/15032025">Permalink</a>
+      </div>
+    ]]></content>
+  </entry>
