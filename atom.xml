@@ -91,3 +91,22 @@
       </div>
     ]]></content>
   </entry>
+
+    <entry>
+    <title>please</title>
+    <link href="https://www.finnleijen.eu/blog/16032025" />
+    <id>https://www.finnleijen.eu/blog/16032025</id> <!-- Entry ID -->
+    <updated>2025-16-08T00:50:12+01:00</updated>
+    <author>
+      <name>Finn</name>
+      <uri>https://www.finnleijen.eu/</uri>
+    </author>
+    <category term="Test" />
+    <summary>i am getting sick of test posts.... please....... let it work.</summary>
+    <content type="html"><![CDATA[
+      <div class="h-entry">
+        <p class="e-content">i am getting sick of test posts.... please....... let it work.</p>
+        <a class="u-url" href="https://www.finnleijen.eu/blog/16032025">Permalink</a>
+      </div>
+    ]]></content>
+  </entry>
