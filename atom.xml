@@ -10,102 +10,20 @@
   </author>
   <id>https://www.finnleijen.eu/atom.xml</id> <!-- Feed ID -->
 
-  <entry>
-    <title>Post 1, test post, hello world</title>
-    <link href="https://www.finnleijen.eu/blog/08032025" />
-    <id>https://www.finnleijen.eu/blog/08032025</id> <!-- Entry ID -->
-    <updated>2025-03-08T23:57:51+01:00</updated>
-    <author>
-      <name>Finn</name>
-      <uri>https://www.finnleijen.eu/</uri>
-    </author>
-    <category term="Test" />
-    <summary>Hey all, there might be a few spam posts while I try to get this stuff to work technologically. I have been thinking a lot about the future of this website and what it will become, and how I will use it to learn coding better... We will see.</summary>
-    <content type="html"><![CDATA[
-      <div class="h-entry">
-        <p class="e-content">Hey all, there might be a few spam posts while I try to get this stuff to work technologically. I have been thinking a lot about the future of this website and what it will become, and how I will use it to learn coding better... We will see.</p>
-        <img src="https://live.staticflickr.com/65535/53576348181_f33a8af987_o_d.jpg" class="u-photo" alt="Post image">
-        <a class="u-url" href="https://www.finnleijen.eu/blog/08032025">Permalink</a>
-      </div>
-    ]]></content>
-  </entry>
-
-  <entry>
-    <title>Post 2, another test post</title>
-    <link href="https://www.finnleijen.eu/blog/09032025" />
-    <id>https://www.finnleijen.eu/blog/09032025</id> <!-- Entry ID -->
-    <updated>2025-09-08T21:50:10+01:00</updated>
-    <author>
-      <name>Finn</name>
-      <uri>https://www.finnleijen.eu/</uri>
-    </author>
-    <category term="Test" />
-    <summary>Another test post in light of a recent breakthrough. Hope you all are well.</summary>
-    <content type="html"><![CDATA[
-      <div class="h-entry">
-        <p class="e-content">Another test post in light of a recent breakthrough. Hope you all are well.</p>
-        <img src="https://live.staticflickr.com/65535/53576790390_739fa44ce5_o_d.jpg" class="u-photo" alt="Post image">
-        <a class="u-url" href="https://www.finnleijen.eu/blog/09032025">Permalink</a>
-      </div>
-    ]]></content>
-  </entry>
-
-  <entry>
-  <title>Reply to @rotweer</title>
-  <link href="https://www.finnleijen.eu/blog/12032025" />
-  <id>https://www.finnleijen.eu/blog/12032025</id> <!-- Unique Entry ID -->
-  <updated>2025-03-12T21:50:10+01:00</updated>
-  <author>
-    <name>Finn</name>
-    <uri>https://www.finnleijen.eu/</uri>
-  </author>
-  <category term="Reply" />
-  <summary>A reply to @rotweer on Mastodon</summary>
-  <content type="html"><![CDATA[
-    <div class="h-entry">
-      <p class="e-content">I totally agree with your point! Here are my thoughts on it...</p>
-      <a class="u-url" href="https://www.finnleijen.eu/blog/12032025">Permalink</a>
-    </div>
-  ]]></content>
-  <link rel="related" type="text/html" href="https://mastodon.social/@rotweer/114146770992946384" />
-  <in-reply-to ref="https://mastodon.social/@rotweer/114146770992946384" type="text/html" href="https://mastodon.social/@rotweer/114146770992946384" />
-</entry>
-</feed>
-
-  <entry>
-    <title>automatic updates</title>
-    <link href="https://www.finnleijen.eu/blog/15032025" />
-    <id>https://www.finnleijen.eu/blog/15032025</id> <!-- Entry ID -->
-    <updated>2025-15-08T01:14:17+01:00</updated>
-    <author>
-      <name>Finn</name>
-      <uri>https://www.finnleijen.eu/</uri>
-    </author>
-    <category term="Test" />
-    <summary>testing right now if i can get github to automatically webmention when i post a new thing. if you see this it worked!</summary>
-    <content type="html"><![CDATA[
-      <div class="h-entry">
-        <p class="e-content">testing right now if i can get github to automatically webmention when i post a new thing. if you see this it worked!</p>
-        <img src="https://live.staticflickr.com/65535/54071205542_642d764ea9_o.jpg" class="u-photo" alt="hot air balloons">
-        <a class="u-url" href="https://www.finnleijen.eu/blog/15032025">Permalink</a>
-      </div>
-    ]]></content>
-  </entry>
-
     <entry>
     <title>please</title>
     <link href="https://www.finnleijen.eu/blog/16032025" />
     <id>https://www.finnleijen.eu/blog/16032025</id> <!-- Entry ID -->
-    <updated>2025-16-08T00:50:12+01:00</updated>
+    <updated>2025-16-08T01:08:25+01:00</updated>
     <author>
       <name>Finn</name>
       <uri>https://www.finnleijen.eu/</uri>
     </author>
     <category term="Test" />
-    <summary>i am getting sick of test posts.... please....... let it work.</summary>
+    <summary>it worked!</summary>
     <content type="html"><![CDATA[
       <div class="h-entry">
-        <p class="e-content">i am getting sick of test posts.... please....... let it work.</p>
+        <p class="e-content">it Worked!</p>
         <a class="u-url" href="https://www.finnleijen.eu/blog/16032025">Permalink</a>
       </div>
     ]]></content>
